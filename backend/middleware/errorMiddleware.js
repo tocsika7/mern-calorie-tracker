@@ -6,7 +6,7 @@ dotenv.config();
 const errorHandler = (err, req, res, next) => {
   const statusCode = res.statusCode;
 
-  if (process.env.NODE_ENV === 'dev') {
+  if (process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'production') {
     console.error(`${err.stack}`.red);
   }
   res.status(statusCode);
