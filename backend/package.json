@@ -12,7 +12,8 @@
     "test@food": "jest --verbose test/api/foodController.test.js",
     "test@user": "jest --verbose test/api/userController.test.js",
     "test@intake": "jest --verbose test/api/intakeController.test.js",
-    "test@req": "jest --verbose test/api/requirementsController.test.js"
+    "test@req": "jest --verbose test/api/requirementsController.test.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "Tóth Csaba",
   "license": "MIT ",
