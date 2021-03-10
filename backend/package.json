@@ -1,0 +1,38 @@
+{
+  "name": "mern-calorie-tracker",
+  "version": "1.0.0",
+  "description": "MERN App for tracking calorie intake. ",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon server",
+    "test@all": "jest --verbose test",
+    "test@util": "jest --verbose test/utility",
+    "test@coverage": "jest --coverage",
+    "test@api": "jest --verbose test/api/",
+    "test@food": "jest --verbose test/api/foodController.test.js",
+    "test@user": "jest --verbose test/api/userController.test.js",
+    "test@intake": "jest --verbose test/api/intakeController.test.js",
+    "test@req": "jest --verbose test/api/requirementsController.test.js"
+  },
+  "author": "Tóth Csaba",
+  "license": "MIT ",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.12"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "supertest": "^6.1.3"
+  },
+  "jest": {
+    "transform": {},
+    "testEnvironment": "node"
+  }
+}
