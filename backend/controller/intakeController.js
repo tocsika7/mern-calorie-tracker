@@ -82,6 +82,31 @@ const getIntake = asyncHandler(async (req, res) => {
   }
 });
 
+const getIntakeBeta = asyncHandler(async (req, res) => {
+  const today = getDateNow();
+  const foods = await User.aggregate([
+    { $match: { _id: req.user._id } },
+    {
+      $project: {
+        foodsEaten: {
+          $filter: {
+            input: '$foodsEaten',
+            as: 'foodItem',
+            cond: { $eq: ['$$foodItem.addedAt', today] },
+          },
+        },
+      },
+    },
+  ]);
+
+  if (foods) {
+    console.log(foods);
+    res.json(foods[0].foodsEaten);
+  } else {
+    throw new Error('No foods :/');
+  }
+});
+
 // @desc Deletes a food based on id from the users daily intake
 // @route DELETE /api/intake
 // @access Private
@@ -169,4 +194,5 @@ module.exports = {
   addToIntake: addToIntake,
   getSumDailyNutrition: getSumDailyNutrition,
   getAverageMealNutrition: getAverageMealNutrition,
+  getIntakeBeta: getIntakeBeta,
 };
