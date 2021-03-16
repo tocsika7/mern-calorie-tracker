@@ -13,7 +13,6 @@
     "test@user": "jest --verbose test/api/userController.test.js",
     "test@intake": "jest --verbose test/api/intakeController.test.js",
     "test@req": "jest --verbose test/api/requirementsController.test.js"
-   
   },
   "author": "Tóth Csaba",
   "license": "MIT ",

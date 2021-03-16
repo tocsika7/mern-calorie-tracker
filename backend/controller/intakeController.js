@@ -152,6 +152,7 @@ const getSumDailyNutrition = asyncHandler(async (req, res) => {
 
 const getAverageMealNutrition = asyncHandler(async (req, res) => {
   try {
+    console.log(req.user._id);
     const filter = { _id: req.user._id };
     const user = await User.aggregate([
       { $match: filter },
